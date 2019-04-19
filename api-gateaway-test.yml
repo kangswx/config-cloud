@@ -1,0 +1,32 @@
+server:
+  port: 9000
+
+# \u670D\u52A1\u540D\u79F0
+spring:
+  rabbitmq:    #rabbitmq配置
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# \u6CE8\u518C\u4E2D\u5FC3
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+# \u81EA\u5B9A\u4E49\u8DEF\u7531\u6620\u5C04
+zuul:
+  routes:
+    order-service: /apigateaway/order/**
+    product-service: /apigateaway/product/**
+  ignored-patterns: /*-service/**   #过滤掉通过服务名访问
+  sensitiveHeaders:                #配置不能将cookie等的值传到后台的问题
+  #  ignored-services: order-service #\u5FFD\u7565\u8DEF\u7531,\u65E0\u6CD5\u901A\u8FC7\u8BE5\u8DEF\u7531\u8BBF\u95EE
+  
+#暴露bus-refresh的监控信息
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
