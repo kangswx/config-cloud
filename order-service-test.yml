@@ -1,0 +1,44 @@
+server:
+  port: 8780
+
+spring:
+  cloud:
+    bus:
+      enabled: true  #消息总线配置
+      trace:
+        enabled: true  #消息总线配置
+  rabbitmq:    #rabbitmq配置
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  redis: # redis\u914D\u7F6E\u4FE1\u606F
+    database: 0
+    host: localhost
+    port: 6379
+    timeout: 2000
+
+# \u5F00\u542Ffeign\u652F\u6301hystrix
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 1000
+        readTimeout: 1000
+
+#\u8BBE\u7F6Ehystrix\u8D85\u65F6\u65F6\u95F4
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
