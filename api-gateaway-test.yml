@@ -4,7 +4,7 @@ server:
 # \u670D\u52A1\u540D\u79F0
 spring:
   rabbitmq:    #rabbitmq配置
-    host: localhost
+    host: 172.26.229.177
     port: 5672
     username: guest
     password: guest
