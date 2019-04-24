@@ -14,7 +14,7 @@ spring:
     password: guest
   redis: # redis\u914D\u7F6E\u4FE1\u606F
     database: 0
-    host: localhost
+    host: 172.26.229.177
     port: 6379
     timeout: 2000
 
